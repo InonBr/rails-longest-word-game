@@ -1,0 +1,18 @@
+<h1>********* Welcome to the longest word-game! *********</h1>
+<h2>Here is your grid:</h2>
+
+<ul>
+    <% @random_array.each do |letter| %>
+    <li><%= letter %></li>
+    <% end %>
+</ul>
+
+<h1>*****************************************************</h1>
+
+<form action="\score" method="post">
+  <label for="word">What is the longest word you can think of?</label>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag "grid", @random_array %>
+  <input type="text" id="word" name="word" placeholder="Word...">
+  <input type="submit" value="play!">
+</form>
